@@ -17,8 +17,24 @@ function agregarFila() {
         accionesCell.innerHTML = '<button class="btn btn-primary" onclick="editarFila(this)" disabled><i class="fas fa-pencil-alt"></i></button>&nbsp;&nbsp;<button class="btn btn-secondary" onclick="eliminarFilaTemporal(this)"><i class="far fa-trash-alt"></i></button>';
 
         document.getElementById("addContentButton").disabled = false;
+
+         // Eliminar el mensaje de "No hay datos disponibles" si existe
+         var noDataMessage = document.getElementById('noDataMessage');
+         if (noDataMessage) {
+             noDataMessage.parentNode.removeChild(noDataMessage);
+         }
     } else {
         swal("Error", "Guarda el contenido de la fila actual antes de agregar una nueva.", "warning");
+    }
+}
+
+function mostrarMensajeNoDatos() {
+    var table = document.getElementById("tabla");
+    var tbody = table.getElementsByTagName("tbody")[0];
+    var rowCount = tbody.rows.length;
+    
+    if (rowCount === 0) {
+        tbody.innerHTML = "<tr id='noDataMessage'><td colspan='6'>No hay datos disponibles</td></tr>";
     }
 }
 
@@ -35,6 +51,7 @@ function eliminarFilaTemporal(button) {
             row.remove();
             document.getElementById("addContentButton").disabled = true;
             swal("Eliminado !!", "La fila ha sido eliminada.", "success");
+            mostrarMensajeNoDatos();
         }
     });
 }
@@ -193,6 +210,7 @@ function eliminarFila(button) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    mostrarMensajeNoDatos();
     var generateWordBtn = document.getElementById('generateWordBtn');
 
     generateWordBtn.addEventListener('click', function () {
