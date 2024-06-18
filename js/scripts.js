@@ -213,7 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
     mostrarMensajeNoDatos();
     var generateWordBtn = document.getElementById('generateWordBtn');
 
-    generateWordBtn.addEventListener('click', function () {
+    generateWordBtn.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevenir el comportamiento predeterminado del botón    
         swal({
             title: "Confirmar generación",
             text: "¿Desea generar el documento?",
