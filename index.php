@@ -11,7 +11,7 @@
     <table id="tabla" class="table table-bordered table-responsive-lg" style="width: 100%">
         <thead>
             <tr>
-                <th>Nro</th>
+                <th>Nro (Generar Doc's)</th>
                 <th>Fecha</th>
                 <th>Resolución</th>
                 <th>Nombre</th>
