@@ -18,11 +18,11 @@ function agregarFila() {
 
         document.getElementById("addContentButton").disabled = false;
 
-         // Eliminar el mensaje de "No hay datos disponibles" si existe
-         var noDataMessage = document.getElementById('noDataMessage');
-         if (noDataMessage) {
-             noDataMessage.parentNode.removeChild(noDataMessage);
-         }
+        // Eliminar el mensaje de "No hay datos disponibles" si existe
+        var noDataMessage = document.getElementById('noDataMessage');
+        if (noDataMessage) {
+            noDataMessage.parentNode.removeChild(noDataMessage);
+        }
     } else {
         swal("Error", "Guarda el contenido de la fila actual antes de agregar una nueva.", "warning");
     }
@@ -32,7 +32,7 @@ function mostrarMensajeNoDatos() {
     var table = document.getElementById("tabla");
     var tbody = table.getElementsByTagName("tbody")[0];
     var rowCount = tbody.rows.length;
-    
+
     if (rowCount === 0) {
         tbody.innerHTML = "<tr id='noDataMessage'><td colspan='6'>No hay datos disponibles</td></tr>";
     }
@@ -347,13 +347,11 @@ function cerrarFormulario() {
                 }
             }
         });
-    } else {
-        // Si no hay documento generado, simplemente ocultar el formulario
-        document.getElementById('form-table').style.display = 'block';
-        document.getElementById('formularioEdicion').style.display = 'none';
-        document.title = 'Sistema de Gestión de Documentos';
-        document.querySelector(".titleWeb").textContent = "Sistema de Generacion Word y convertir a PDF";
     }
+    document.getElementById('form-table').style.display = 'block';
+    document.getElementById('formularioEdicion').style.display = 'none';
+    document.title = 'Sistema de Gestión de Documentos';
+    document.querySelector(".titleWeb").textContent = "Sistema de Generacion Word y convertir a PDF"
 }
 
 function eliminarWord(fileName) {
