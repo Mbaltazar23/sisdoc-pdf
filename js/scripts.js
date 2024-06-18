@@ -338,6 +338,8 @@ function cerrarFormulario() {
             if (isClosed) {
                 document.getElementById('form-table').style.display = 'block';
                 document.getElementById('formularioEdicion').style.display = 'none';
+                document.title = 'Sistema de Gestión de Documentos';
+                document.querySelector(".titleWeb").textContent = "Sistema de Generacion Word y convertir a PDF"
                 var fileName = localStorage.getItem('generatedFileName');
                 if (fileName) {
                     eliminarWord(fileName);
@@ -347,11 +349,12 @@ function cerrarFormulario() {
                 }
             }
         });
+    } else {
+        document.getElementById('form-table').style.display = 'block';
+        document.getElementById('formularioEdicion').style.display = 'none';
+        document.title = 'Sistema de Gestión de Documentos';
+        document.querySelector(".titleWeb").textContent = "Sistema de Generacion Word y convertir a PDF"
     }
-    document.getElementById('form-table').style.display = 'block';
-    document.getElementById('formularioEdicion').style.display = 'none';
-    document.title = 'Sistema de Gestión de Documentos';
-    document.querySelector(".titleWeb").textContent = "Sistema de Generacion Word y convertir a PDF"
 }
 
 function eliminarWord(fileName) {
